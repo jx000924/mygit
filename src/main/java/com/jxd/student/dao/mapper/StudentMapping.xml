@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxd.student.dao.IStudentDao">
+
+    <select id="getAllStudentList" resultType="java.util.HashMap">
+        select id,name,sex,birthday,grade,collegeid from student
+        <where>
+            <if test="name != '' and name != null">
+                name like '%' #{name} '%'
+            </if>
+        </where>
+        order by id
+    </select>
+
+
+
+
+</mapper>
